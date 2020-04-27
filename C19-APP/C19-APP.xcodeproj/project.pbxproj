@@ -16,6 +16,9 @@
 		3512771724571A6B009BC1B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3512771524571A6B009BC1B2 /* LaunchScreen.storyboard */; };
 		3512772224571A6B009BC1B2 /* C19_APPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3512772124571A6B009BC1B2 /* C19_APPTests.swift */; };
 		3512772D24571A6B009BC1B2 /* C19_APPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3512772C24571A6B009BC1B2 /* C19_APPUITests.swift */; };
+		3512773C24572BC1009BC1B2 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3512773B24572BC1009BC1B2 /* LocationManager.swift */; };
+		3512773E24572D16009BC1B2 /* DataStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3512773D24572D16009BC1B2 /* DataStorageManager.swift */; };
+		3512774124574642009BC1B2 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3512774024574642009BC1B2 /* LocationModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		3512772824571A6B009BC1B2 /* C19-APPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "C19-APPUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3512772C24571A6B009BC1B2 /* C19_APPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C19_APPUITests.swift; sourceTree = "<group>"; };
 		3512772E24571A6B009BC1B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3512773B24572BC1009BC1B2 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		3512773D24572D16009BC1B2 /* DataStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorageManager.swift; sourceTree = "<group>"; };
+		3512774024574642009BC1B2 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,8 @@
 		3512770724571A6A009BC1B2 /* C19-APP */ = {
 			isa = PBXGroup;
 			children = (
+				3512773F2457462F009BC1B2 /* Model */,
+				3512773A24572BA7009BC1B2 /* Service */,
 				3512770824571A6A009BC1B2 /* AppDelegate.swift */,
 				3512770A24571A6A009BC1B2 /* SceneDelegate.swift */,
 				3512770C24571A6A009BC1B2 /* FirstViewController.swift */,
@@ -129,6 +137,23 @@
 				3512772E24571A6B009BC1B2 /* Info.plist */,
 			);
 			path = "C19-APPUITests";
+			sourceTree = "<group>";
+		};
+		3512773A24572BA7009BC1B2 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3512773B24572BC1009BC1B2 /* LocationManager.swift */,
+				3512773D24572D16009BC1B2 /* DataStorageManager.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		3512773F2457462F009BC1B2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3512774024574642009BC1B2 /* LocationModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,8 +287,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3512770F24571A6A009BC1B2 /* SecondViewController.swift in Sources */,
+				3512773E24572D16009BC1B2 /* DataStorageManager.swift in Sources */,
 				3512770D24571A6A009BC1B2 /* FirstViewController.swift in Sources */,
+				3512773C24572BC1009BC1B2 /* LocationManager.swift in Sources */,
 				3512770924571A6A009BC1B2 /* AppDelegate.swift in Sources */,
+				3512774124574642009BC1B2 /* LocationModel.swift in Sources */,
 				3512770B24571A6A009BC1B2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
