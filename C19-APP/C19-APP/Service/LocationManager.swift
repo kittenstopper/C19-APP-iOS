@@ -67,7 +67,8 @@ class LocationManager: NSObject {
             coreLocationManager.requestAlwaysAuthorization()
         }
         coreLocationManager.startUpdatingLocation()
-        
+        coreLocationManager.allowsBackgroundLocationUpdates = true
+
 
         // setup database
 
