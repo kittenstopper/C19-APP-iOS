@@ -4,29 +4,24 @@ import CoreLocation
 
 struct LocationModel {
     
-    let latitude: Double
+    let timestamp: Int // timeIntervalSinceReferenceDate
     
-    let longitude: Double
+    let hashString: String
     
-    let altitude: Double
-    
-    let floorLevel: Int?
-    
-    let horizontalAccuracy: Double
-    
-    let verticalAccuracy: Double
-    
-    let timestamp: Double // timeIntervalSinceReferenceDate
-    
-    
-    init(from coreLocation: CLLocation) {
-        self.latitude = coreLocation.coordinate.latitude
-        self.longitude = coreLocation.coordinate.longitude
-        self.altitude = coreLocation.altitude
-        self.horizontalAccuracy = coreLocation.horizontalAccuracy
-        self.verticalAccuracy = coreLocation.verticalAccuracy
-        self.timestamp = coreLocation.timestamp.timeIntervalSinceReferenceDate
-        self.floorLevel = coreLocation.floor?.level
+    var precision: Int {
+        get {
+            hashString.count
+        }
     }
     
+    init(from loc: CLLocation, length: Int) {
+        self.hashString = loc.coordinate.geohash(length: length)
+        self.timestamp = Int(loc.timestamp.timeIntervalSinceReferenceDate)
+    }
+    
+    init(from timestamp: Int, geohash: String) {
+        self.hashString = geohash
+        self.timestamp = timestamp
+    }
+        
 }
