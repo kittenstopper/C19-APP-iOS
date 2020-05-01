@@ -57,7 +57,7 @@ class DataStorageManager {
     
     func insert(timestamp:Int, geohash:String)
     {
-        let insertStatementString = "INSERT INTO person (Id, name, age) VALUES (?, ?, ?);"
+        let insertStatementString = "INSERT INTO locations (timestamp, geohash) VALUES (?, ?);"
         var insertStatement: OpaquePointer? = nil
         if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
             sqlite3_bind_int(insertStatement, 1, Int32(timestamp))
@@ -95,8 +95,16 @@ class DataStorageManager {
     
     
     
-    private func pruneOldRecords() {}
+    func pruneOldRecords() {
+        print(self.read())
+    }
     
     
+    
+    
+    /// Returns the string representation of the data for the past two weeks
+    func getHistoricalData() -> String {
+        return " Historical data "
+    }
     
 }
