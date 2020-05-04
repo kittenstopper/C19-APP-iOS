@@ -4,12 +4,11 @@ import os
 
 
 protocol LocationManagerDelegate: AnyObject {
-    
     func didReceiveLocationUpdate(tenRecentGeohashes: [String])
 }
 
 struct LocationManagerConfiguration {
-    static let capacity: Int = 10
+    static let accuracy: Int = 10
 }
 
 
@@ -19,9 +18,6 @@ class LocationManager: NSObject {
     
     private var geohashes: [String] = [] {
         didSet {
-            if (geohashes.count > LocationManagerConfiguration.capacity) {
-                geohashes = geohashes.suffix(10)
-            }
             self.delegate?.didReceiveLocationUpdate(tenRecentGeohashes: geohashes)
         }
     }
@@ -68,10 +64,6 @@ class LocationManager: NSObject {
         }
         coreLocationManager.startUpdatingLocation()
         coreLocationManager.allowsBackgroundLocationUpdates = true
-
-
-        // setup database
-
     }
     
     
@@ -100,8 +92,11 @@ extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         for location in locations {
             self.geohashes.append(
-                Geohash.encode(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, length: 8)
+                Geohash.encode(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, length: LocationManagerConfiguration.accuracy)
             )
+            let timestamp = Int(location.timestamp.timeIntervalSinceReferenceDate * 1000)
+            let geohash = location.coordinate.geohash(length: LocationManagerConfiguration.accuracy)
+            DBHelper.shared.insert(timestamp: timestamp, geohash: geohash)
         }
     }
 

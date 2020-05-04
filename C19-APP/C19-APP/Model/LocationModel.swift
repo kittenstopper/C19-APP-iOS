@@ -2,9 +2,13 @@ import Foundation
 import CoreLocation
 
 
-struct LocationModel {
+struct LocationModel:Equatable {
     
-    let timestamp: Int // timeIntervalSinceReferenceDate
+    static func ==(lhs: LocationModel, rhs: LocationModel) -> Bool {
+        return lhs.timestamp == rhs.timestamp && lhs.hashString == rhs.hashString
+    }
+        
+    let timestamp: Int // timeIntervalSinceReferenceDate * 1000
     
     let hashString: String
     
@@ -24,4 +28,18 @@ struct LocationModel {
         self.timestamp = timestamp
     }
         
+}
+
+
+
+extension Date {
+    func toMillisecondsSinceReferenceDate() -> Double {
+        return self.timeIntervalSinceReferenceDate * 1000.0
+    }
+}
+    
+extension Int {
+    func toDate() -> Date {
+        return Date(timeIntervalSinceReferenceDate: TimeInterval(self) / 1000)
+    }
 }
