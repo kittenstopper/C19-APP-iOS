@@ -24,14 +24,14 @@ class DBHelperTests: XCTestCase {
     }
 
     func testCreateEmptyTable() throws {
-        try! DBHelper.shared.createTable()
+        DBHelper.shared.createTable()
         let result = DBHelper.shared.read()
         XCTAssert(result.isEmpty)
     }
     
     
     func testInsertReadOrdered() {
-        try! DBHelper.shared.createTable()
+        DBHelper.shared.createTable()
         let lm1 = LocationModel(from: 12345345353255, geohash: "aretg344ewer")
         let lm2 = LocationModel(from: 35453253245352, geohash: "csdgfsergrth")
         let lm3 = LocationModel(from: 23425324534553, geohash: "bgsdghsdgfds")
@@ -45,13 +45,6 @@ class DBHelperTests: XCTestCase {
     }
     
     
-    func testDateToMilliseconds() {
-//        let twoWeeksInSeconds: Int = 1209600
-        print(Double(Date().timeIntervalSinceReferenceDate))
-        print(LocationModel.secondsToMilliseconds(date: Date()))
-    }
-    
-
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {

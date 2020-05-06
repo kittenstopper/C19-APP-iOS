@@ -3,9 +3,9 @@ import UIKit
 class FirstViewController: UIViewController {
     
     
-    
     @IBAction func btnAction(_ sender: Any) {
         LocationManager.instance.startRecordingLocation()
+        DBHelper.shared.pruneOldRecords()
     }
     
     override func viewDidLoad() {
@@ -19,9 +19,7 @@ extension FirstViewController: LocationManagerDelegate {
     
     
     func didReceiveLocationUpdate(tenRecentGeohashes: [String]) {
-        let newText = tenRecentGeohashes.joined(separator: "\n")
-//        self.infoLabel.text = newText
-        
+        // Do nothing
     }
     
     

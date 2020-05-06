@@ -22,6 +22,7 @@
 		3512774124574642009BC1B2 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3512774024574642009BC1B2 /* LocationModel.swift */; };
 		352E68F1245C735C0062AA66 /* DBHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352E68F0245C735C0062AA66 /* DBHelperTests.swift */; };
 		35801CB82459E96E003A162E /* Geohash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35801CB72459E96E003A162E /* Geohash.swift */; };
+		358C440D2460B1C300CCE009 /* ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358C440C2460B1C300CCE009 /* ExtensionsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		352E68F0245C735C0062AA66 /* DBHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelperTests.swift; sourceTree = "<group>"; };
 		3555330424589F6C0061B119 /* C19-APP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "C19-APP-Bridging-Header.h"; sourceTree = "<group>"; };
 		35801CB72459E96E003A162E /* Geohash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geohash.swift; sourceTree = "<group>"; };
+		358C440C2460B1C300CCE009 /* ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsTests.swift; sourceTree = "<group>"; };
 		4BC155E47732389FC618699E /* Pods-C19-APP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-C19-APP.debug.xcconfig"; path = "Target Support Files/Pods-C19-APP/Pods-C19-APP.debug.xcconfig"; sourceTree = "<group>"; };
 		87028042C7ACC4AAB17DAA9D /* Pods_C19_APP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_C19_APP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -150,6 +152,7 @@
 				3512772124571A6B009BC1B2 /* C19_APPTests.swift */,
 				3512772324571A6B009BC1B2 /* Info.plist */,
 				352E68F0245C735C0062AA66 /* DBHelperTests.swift */,
+				358C440C2460B1C300CCE009 /* ExtensionsTests.swift */,
 			);
 			path = "C19-APPTests";
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3512772224571A6B009BC1B2 /* C19_APPTests.swift in Sources */,
+				358C440D2460B1C300CCE009 /* ExtensionsTests.swift in Sources */,
 				352E68F1245C735C0062AA66 /* DBHelperTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

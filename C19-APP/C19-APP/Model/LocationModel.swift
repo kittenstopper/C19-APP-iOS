@@ -32,13 +32,13 @@ struct LocationModel:Equatable {
 
 
 
-extension Date {
+public extension Date {
     func toMillisecondsSinceReferenceDate() -> Double {
-        return self.timeIntervalSinceReferenceDate * 1000.0
+        return self.timeIntervalSinceReferenceDate * 1000
     }
 }
     
-extension Int {
+public extension Double {
     func toDate() -> Date {
         return Date(timeIntervalSinceReferenceDate: TimeInterval(self) / 1000)
     }
