@@ -2,31 +2,44 @@ import Foundation
 import CoreLocation
 
 
-struct LocationModel {
+struct LocationModel:Equatable {
     
-    let latitude: Double
+    static func ==(lhs: LocationModel, rhs: LocationModel) -> Bool {
+        return lhs.timestamp == rhs.timestamp && lhs.hashString == rhs.hashString
+    }
+        
+    let timestamp: Int // timeIntervalSinceReferenceDate * 1000
     
-    let longitude: Double
+    let hashString: String
     
-    let altitude: Double
-    
-    let floorLevel: Int?
-    
-    let horizontalAccuracy: Double
-    
-    let verticalAccuracy: Double
-    
-    let timestamp: Double // timeIntervalSinceReferenceDate
-    
-    
-    init(from coreLocation: CLLocation) {
-        self.latitude = coreLocation.coordinate.latitude
-        self.longitude = coreLocation.coordinate.longitude
-        self.altitude = coreLocation.altitude
-        self.horizontalAccuracy = coreLocation.horizontalAccuracy
-        self.verticalAccuracy = coreLocation.verticalAccuracy
-        self.timestamp = coreLocation.timestamp.timeIntervalSinceReferenceDate
-        self.floorLevel = coreLocation.floor?.level
+    var precision: Int {
+        get {
+            hashString.count
+        }
     }
     
+    init(from loc: CLLocation, length: Int) {
+        self.hashString = loc.coordinate.geohash(length: length)
+        self.timestamp = Int(loc.timestamp.timeIntervalSinceReferenceDate)
+    }
+    
+    init(from timestamp: Int, geohash: String) {
+        self.hashString = geohash
+        self.timestamp = timestamp
+    }
+        
+}
+
+
+
+public extension Date {
+    func toMillisecondsSinceReferenceDate() -> Double {
+        return self.timeIntervalSinceReferenceDate * 1000
+    }
+}
+    
+public extension Double {
+    func toDate() -> Date {
+        return Date(timeIntervalSinceReferenceDate: TimeInterval(self) / 1000)
+    }
 }
